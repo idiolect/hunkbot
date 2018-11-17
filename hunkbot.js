@@ -8,6 +8,53 @@ var isUnreadResponse
 var isUnreadFlag
 var activityResponse
 
+// Request specifications
+
+var loginOptions = {
+  url: 'https://v1.peachapi.com/login',
+  method: 'post',
+  headers: { 'Content-Type': 'application/json' },
+  json: { 'email': HUNKBOTEMAIL, 'password': HUNKBOTPASSWORD }
+}
+
+var isUnreadOptions = {
+  url: 'https://v1.peachapi.com/activity/isUnread',
+  method: 'GET',
+  headers: { 'Authorization': `Bearer ${authenticationToken}` }
+}
+
+var url3 = {
+  url: 'http://localhost:5000/3.txt',
+  method: 'GET'
+}
+
+// Async chain
+
+async function doRequests() {
+  let response
+  // Login request
+  response = await request(loginOptions)
+  loginResponse = response
+  authenticationToken = loginResponse.data.streams[0].token
+  console.log(authenticationToken)
+  // Check isUnread
+  isUnreadOptions.headers.Authorization = `Bearer ${authenticationToken}`
+  response = await request(isUnreadOptions)
+  isUnreadResponse = response
+  isUnreadFlag = JSON.parse(isUnreadResponse).data.isUnreadActivity
+  console.log(`isUnreadFlag: ${isUnreadFlag}`)
+  /*
+  if (isUnreadFlag === true) console.log("Unread flag is true.")
+  else console.log("Unread flag is false.")
+  //console.log(response)
+  response = await request(url3)
+  //console.log(response)
+  */
+}
+
+doRequests().catch(err => console.log(err))
+
+/*
 // 1. Login
 
 // Login: Request details
@@ -81,3 +128,4 @@ request(loginOptions, function (error, response, body) {
     }
   }
 })
+*/
