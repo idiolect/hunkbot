@@ -16,7 +16,7 @@ var url3 = {
   method: 'GET'
 }
 
-async function doRequests() {
+async function doRequests () {
   let response
   response = await request(url1)
   console.log(response)
