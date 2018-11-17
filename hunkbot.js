@@ -1,5 +1,5 @@
 const fs = require('fs')
-var request = require('request')
+var request = require('request-promise')
 const HUNKBOTEMAIL = process.env.HUNKBOTEMAIL
 const HUNKBOTPASSWORD = process.env.HUNKBOTPASSWORD
 var loginResponse
@@ -10,16 +10,11 @@ var activityResponse
 
 // 1. Login
 
-// Login: Configure headers
-var loginHeaders = {
-  'Content-Type': 'application/json'
-}
-
 // Login: Request details
 var loginOptions = {
   url: 'https://v1.peachapi.com/login',
   method: 'post',
-  headers: loginHeaders,
+  headers: { 'Content-Type': 'application/json' },
   json: { 'email': HUNKBOTEMAIL, 'password': HUNKBOTPASSWORD }
 }
 
