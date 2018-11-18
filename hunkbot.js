@@ -14,8 +14,13 @@ var isUnreadFlag
 var activity
 
 // S3 interaction
-const ACCESSKEYID = process.env.ACCESSKEYID
-const SECRETACCESSKEY = process.env.SECRETACCESSKEY
+// It looks like we don't need these as aws-sdk pulls these from the environment
+// TODO: Figure out if this has to be set via aws-cli configure
+// Or if we can set these some other way. Not sure how it will work in Lambda.
+// See: https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-node-credentials-environment.html
+
+// const ACCESSKEYID = process.env.ACCESSKEYID
+// const SECRETACCESSKEY = process.env.SECRETACCESSKEY
 const S3BUCKETNAME = process.env.S3BUCKETNAME
 const awsPath = `https://s3.amazonaws.com/${S3BUCKETNAME}/`
 const AWS = require('aws-sdk')
