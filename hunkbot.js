@@ -77,40 +77,41 @@ let s3Params = {
 var fileList
 var imageURLArray = []
 
-// The listObjectsV2 method allows us to retrieve up to 1000 records.
-s3.listObjectsV2(s3Params, function (err, data) {
-  if (err) console.log(`ERROR!: ${err}, ${err.stack}`)
-  else {
-    // Feed the results from S3 into a new variable.
-    fileList = data
-    // Find out how many images are available.
-    // TODO: Some filetype checking. Right now, we have no special handling for cases where a non-image file or busted record is returned.
-    let countOfImages = fileList.Contents.length
-    // Opening a file for writing. imagePaths.txt will be overwritten each time this script runs.
-    var logger = fs.createWriteStream('imagePaths.txt')
-    // Iterate over each image
-    for (let x = 0; x < countOfImages; x++) {
-      // Create an image URL using each individual filename ("Key")
-      let imagePath = `${awsPath}${fileList.Contents[x].Key}`
-      try {
-        // Attempt to write the current URL to the file, followed by a newline
-        logger.write(`${imagePath}\n`)
-        // Update the in-memory list of available image URLs
-        imageURLArray.push(imagePath)
-      } catch (err) {
-        // If something goes wrong...
-        console.log('Something went wrong when writing to the image paths file.')
-      }
-    }
-    // Close the output file.
-    console.log(imageURLArray)
-    logger.end()
-  }
-})
-
 // Async chain
 
 async function doRequests () {
+  // The listObjectsV2 method allows us to retrieve up to 1000 records.
+  await s3.listObjectsV2(s3Params, function (err, data) {
+    if (err) console.log(`ERROR!: ${err}, ${err.stack}`)
+    else {
+    // Feed the results from S3 into a new variable.
+      fileList = data
+      console.log(fileList)
+      // Find out how many images are available.
+      // TODO: Some filetype checking. Right now, we have no special handling for cases where a non-image file or busted record is returned.
+      let countOfImages = fileList.Contents.length
+      // Opening a file for writing. imagePaths.txt will be overwritten each time this script runs.
+      var logger = fs.createWriteStream('imagePaths.txt')
+      // Iterate over each image
+      for (let x = 0; x < countOfImages; x++) {
+      // Create an image URL using each individual filename ("Key")
+        let imagePath = `${awsPath}${fileList.Contents[x].Key}`
+        try {
+        // Attempt to write the current URL to the file, followed by a newline
+          logger.write(`${imagePath}\n`)
+          // Update the in-memory list of available image URLs
+          imageURLArray.push(imagePath)
+        } catch (err) {
+        // If something goes wrong...
+          console.log('Something went wrong when writing to the image paths file.')
+        }
+      }
+      // Close the output file.
+      console.log(imageURLArray)
+      logger.end()
+    }
+  })
+
   let response
   // Login request
   response = await request(loginOptions)
@@ -155,8 +156,9 @@ async function doRequests () {
     console.log(response)
   } else { // nothing to do, end script immediately }
     console.log('Nothing to do.')
-    process.exit()
+    // process.exit()
   }
 }
 
 doRequests().catch(err => console.log(err))
+// process.exit()
