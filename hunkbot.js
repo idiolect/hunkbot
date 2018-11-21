@@ -7,6 +7,11 @@ var request = require('request-promise')
 const HUNKBOTEMAIL = process.env.HUNKBOTEMAIL
 const HUNKBOTPASSWORD = process.env.HUNKBOTPASSWORD
 const HUNKBOTUSERNAME = process.env.HUNKBOTUSERNAME
+
+// imgur
+const IMGURCLIENTID = process.env.IMGURCLIENTID
+var imgurResponse
+
 var loginResponse
 var authenticationToken
 var isUnreadResponse
@@ -25,9 +30,9 @@ const S3BUCKETNAME = process.env.S3BUCKETNAME
 const awsPath = `https://s3.amazonaws.com/${S3BUCKETNAME}/`
 const AWS = require('aws-sdk')
 
-console.log(HUNKBOTEMAIL)
-console.log(HUNKBOTPASSWORD)
-console.log(HUNKBOTUSERNAME)
+// console.log(HUNKBOTEMAIL)
+// console.log(HUNKBOTPASSWORD)
+// console.log(HUNKBOTUSERNAME)
 
 // Defining Peach API requests
 
@@ -56,9 +61,9 @@ var replyOptions = {
   headers: { 'Authorization': `Bearer ${authenticationToken}` },
   json: { 'message': [{
     'type': 'image',
-    'src': ''
-    // 'height': 0,
-    // 'width': 0
+    'src': '',
+    'height': 0,
+    'width': 0
   }, { 'type': 'text',
     'text': ''
   }] }
@@ -68,6 +73,13 @@ var readOptions = {
   url: 'https://v1.peachapi.com/activity/read',
   method: 'PUT',
   headers: { 'Authorization': `Bearer ${authenticationToken}` }
+}
+
+// Defining imgur API requests
+var imgurOptions = {
+  url: 'https://api.imgur.com/3/album/4eArsFU',
+  method: 'GET',
+  headers: { 'Authorization': `Client-ID ${IMGURCLIENTID}` }
 }
 
 // S3
@@ -82,7 +94,13 @@ let s3Params = {
 var fileList
 var imageURLArray = []
 
+// imgur
+var imgurArray = []
+
 // Async chain
+
+/*
+// S3 request and building an image list
 
 async function doRequests () {
   // The listObjectsV2 method allows us to retrieve up to 1000 records.
@@ -116,9 +134,51 @@ async function doRequests () {
       logger.end()
     }
   })
+  */
 
+async function doRequests () {
+  // imgur request and building a list of images with their associated widths and heights.dta
+  /*
+  let imgurRequestResponse
+  imgurResponse = await request(imgurOptions, function (err, data) {
+    if (err) console.log(`ERROR!: ${err}, ${err.stack}`)
+    else {
+      imgurRequestResponse = data
+    }
+  })
+  */
+
+  // var request = require('request')
+
+  var headers = {
+    'Authorization': 'Client-ID 7564b7a4844b5c8'
+  }
+
+  var options = {
+    url: 'https://api.imgur.com/3/album/4eArsFU',
+    headers: headers
+  }
+
+  function callback (error, response, body) {
+    if (!error && response.statusCode === 200) {
+      imgurResponse = JSON.parse(body)
+    }
+  }
+
+  await request(options, callback)
+
+  let countOfImages = imgurResponse.data.images.length
+  console.log(countOfImages)
+  for (let x = 0; x < countOfImages; x++) {
+    let hunkURL = imgurResponse.data.images[x].link
+    let hunkWidth = imgurResponse.data.images[x].width
+    let hunkHeight = imgurResponse.data.images[x].height
+    imgurArray.push([hunkURL, hunkWidth, hunkHeight])
+  }
+  console.log(imgurArray)
+
+  // Peach login request
   let response
-  // Login request
   response = await request(loginOptions)
   loginResponse = response
   authenticationToken = loginResponse.data.streams[0].token
@@ -152,8 +212,14 @@ async function doRequests () {
             // console.log(myJSON.data.activityItems[0].body.authorStream.name)
             // console.log(myJSON.data.activityItems[x].body.postMessage[0].text)
             replyOptions.json.message[1].text = `@${authorName}`
-            let randomImageIndex = lodash.random(0, imageURLArray.length)
-            replyOptions.json.message[0].src = imageURLArray[randomImageIndex]
+            // let randomImageIndex = lodash.random(0, imageURLArray.length)
+            let randomImageIndex = lodash.random(0, imgurArray.length)
+            // replyOptions.json.message[0].src = imageURLArray[randomImageIndex]
+            replyOptions.json.message[0].src = imgurArray[randomImageIndex][0]
+            // imgur-specific
+            replyOptions.json.message[0].src = imgurArray[randomImageIndex][0]
+            replyOptions.json.message[0].width = imgurArray[randomImageIndex][1]
+            replyOptions.json.message[0].height = imgurArray[randomImageIndex][2]
             console.log(replyOptions)
             response = await request(replyOptions)
             console.log(response)
