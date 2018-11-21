@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "email": "hunkbot@use.startmail.com",
   "dependencies": {
     "aws-sdk": "^2.355.0",
     "fs": "^0.0.1-security",
