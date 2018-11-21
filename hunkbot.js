@@ -145,7 +145,7 @@ async function doRequests () {
         try {
           // Need to change the following to check for type 'tag' instead of a mention
           // if (myJSON.data.activityItems[x].body.postMessage[0].text.includes(`@${HUNKBOTUSERNAME}`)) {
-          if (myJSON.data.activityItems[x].type === 'tag' && myJSON.data.activityItems[x].body.authorStream.name != `${HUNKBOTUSERNAME}` && myJSON.data.activityItems[x].body.postMessage[0].type === 'text' && myJSON.data.activityItems[x].body.postMessage[0].text.includes(`@${HUNKBOTUSERNAME}`)
+          if (myJSON.data.activityItems[x].type === 'tag' && myJSON.data.activityItems[x].body.authorStream.name !== `${HUNKBOTUSERNAME}` && myJSON.data.activityItems[x].body.postMessage[0].type === 'text' && myJSON.data.activityItems[x].body.postMessage[0].text.includes(`@${HUNKBOTUSERNAME}`)
           ) {
             replyOptions.headers.Authorization = `Bearer ${authenticationToken}`
             var authorName = myJSON.data.activityItems[0].body.authorStream.name
