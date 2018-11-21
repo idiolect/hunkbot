@@ -142,17 +142,21 @@ async function doRequests () {
     for (var x = 0; x < myJSONLength; x++) {
       // do stuff
       if (myJSON.data.activityItems[x].isUnread === true) {
-        if (myJSON.data.activityItems[x].body.postMessage[0].text.includes(`@${HUNKBOTUSERNAME} `)) {
-          replyOptions.headers.Authorization = `Bearer ${authenticationToken}`
-          var authorName = myJSON.data.activityItems[0].body.authorStream.name
-          // console.log(myJSON.data.activityItems[0].body.authorStream.name)
-          // console.log(myJSON.data.activityItems[x].body.postMessage[0].text)
-          replyOptions.json.message[1].text = `@${authorName}`
-          let randomImageIndex = lodash.random(0, imageURLArray.length)
-          replyOptions.json.message[0].src = imageURLArray[randomImageIndex]
-          console.log(replyOptions)
-          response = await request(replyOptions)
-          console.log(response)
+        try {
+          if (myJSON.data.activityItems[x].body.postMessage[0].text.includes(`@${HUNKBOTUSERNAME} `)) {
+            replyOptions.headers.Authorization = `Bearer ${authenticationToken}`
+            var authorName = myJSON.data.activityItems[0].body.authorStream.name
+            // console.log(myJSON.data.activityItems[0].body.authorStream.name)
+            // console.log(myJSON.data.activityItems[x].body.postMessage[0].text)
+            replyOptions.json.message[1].text = `@${authorName}`
+            let randomImageIndex = lodash.random(0, imageURLArray.length)
+            replyOptions.json.message[0].src = imageURLArray[randomImageIndex]
+            console.log(replyOptions)
+            response = await request(replyOptions)
+            console.log(response)
+          }
+        } catch (error) {
+          console.log('text field not found // includes undefined')
         }
       }
     }
