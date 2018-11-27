@@ -233,6 +233,9 @@ async function doRequests () {
     response = await request(readOptions)
     console.log(response)
   } else { // nothing to do, end script immediately }
+    readOptions.headers.Authorization = `Bearer ${authenticationToken}`
+    response = await request(readOptions)
+    console.log(response)
     console.log('Nothing to do.')
     // process.exit()
   }
