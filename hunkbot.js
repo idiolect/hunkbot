@@ -1,5 +1,3 @@
-// General
-const fs = require('fs')
 const lodash = require('lodash')
 
 // hunkbot
@@ -17,24 +15,6 @@ var authenticationToken
 var isUnreadResponse
 var isUnreadFlag
 var activity
-
-// S3 interaction
-// It looks like we don't need these as aws-sdk pulls these from the environment
-// TODO: Figure out if this has to be set via aws-cli configure
-// Or if we can set these some other way. Not sure how it will work in Lambda.
-// See: https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-node-credentials-environment.html
-
-// const ACCESSKEYID = process.env.ACCESSKEYID
-// const SECRETACCESSKEY = process.env.SECRETACCESSKEY
-const S3BUCKETNAME = process.env.S3BUCKETNAME
-const awsPath = `https://s3.amazonaws.com/${S3BUCKETNAME}/`
-const AWS = require('aws-sdk')
-
-// console.log(HUNKBOTEMAIL)
-// console.log(HUNKBOTPASSWORD)
-// console.log(HUNKBOTUSERNAME)
-
-// Defining Peach API requests
 
 var loginOptions = {
   url: 'https://v1.peachapi.com/login',
@@ -75,80 +55,11 @@ var readOptions = {
   headers: { 'Authorization': `Bearer ${authenticationToken}` }
 }
 
-// Defining imgur API requests
-var imgurOptions = {
-  url: 'https://api.imgur.com/3/album/4eArsFU',
-  method: 'GET',
-  headers: { 'Authorization': `Client-ID ${IMGURCLIENTID}` }
-}
-
-// S3
-
-let s3 = new AWS.S3()
-let s3Params = {
-  Bucket: S3BUCKETNAME,
-  // "Keys" are the actual filenames, in S3 parlance.
-  // The "MaxKeys" value is the maximum number of items to retrieve.
-  MaxKeys: 100
-}
-var fileList
-var imageURLArray = []
-
 // imgur
 var imgurArray = []
 
-// Async chain
-
-/*
-// S3 request and building an image list
-
 async function doRequests () {
-  // The listObjectsV2 method allows us to retrieve up to 1000 records.
-  await s3.listObjectsV2(s3Params, function (err, data) {
-    if (err) console.log(`ERROR!: ${err}, ${err.stack}`)
-    else {
-    // Feed the results from S3 into a new variable.
-      fileList = data
-      console.log(fileList)
-      // Find out how many images are available.
-      // TODO: Some filetype checking. Right now, we have no special handling for cases where a non-image file or busted record is returned.
-      let countOfImages = fileList.Contents.length
-      // Opening a file for writing. imagePaths.txt will be overwritten each time this script runs.
-      var logger = fs.createWriteStream('imagePaths.txt')
-      // Iterate over each image
-      for (let x = 0; x < countOfImages; x++) {
-      // Create an image URL using each individual filename ("Key")
-        let imagePath = `${awsPath}${fileList.Contents[x].Key}`
-        try {
-        // Attempt to write the current URL to the file, followed by a newline
-          logger.write(`${imagePath}\n`)
-          // Update the in-memory list of available image URLs
-          imageURLArray.push(imagePath)
-        } catch (err) {
-        // If something goes wrong...
-          console.log('Something went wrong when writing to the image paths file.')
-        }
-      }
-      // Close the output file.
-      console.log(imageURLArray)
-      logger.end()
-    }
-  })
-  */
-
-async function doRequests () {
-  // imgur request and building a list of images with their associated widths and heights.dta
-  /*
-  let imgurRequestResponse
-  imgurResponse = await request(imgurOptions, function (err, data) {
-    if (err) console.log(`ERROR!: ${err}, ${err.stack}`)
-    else {
-      imgurRequestResponse = data
-    }
-  })
-  */
-
-  // var request = require('request')
+  // imgur request and building a list of images with their associated widths and heights.
 
   var headers = {
     'Authorization': 'Client-ID 7564b7a4844b5c8'
@@ -237,9 +148,7 @@ async function doRequests () {
     response = await request(readOptions)
     console.log(response)
     console.log('Nothing to do.')
-    // process.exit()
   }
 }
 
 doRequests().catch(err => console.log(err))
-// process.exit()
