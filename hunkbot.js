@@ -22,6 +22,22 @@ const IMGURCLIENTID = process.env.IMGURCLIENTID
 var imgurResponse
 */
 
+  // self-hosted:
+  // need: filenames, image width, image height, url from filename
+  imageArray = []
+  console.log(IMAGEPATH);
+  console.log(HOSTPATH);
+
+  fs.readdirSync(IMAGEPATH).forEach(file => {
+    if (file != ".dropbox") {
+      var dimensions = sizeOf(`${IMAGEPATH}/${file}`);
+      //console.log(file);
+      //console.log(dimensions);
+      finalPath = HOSTPATH + file;
+      imageArray.push([finalPath, dimensions.width, dimensions.height]);
+      }
+  });
+
 // peach
 var loginResponse
 var authenticationToken
@@ -78,9 +94,9 @@ var readOptions = {
 var imgurArray = []
 */
 
+async function doRequests () {
 /*
 // imgur
-async function doRequests () {
   // imgur request and building a list of images with their associated widths and heights.
 
   var headers = {
@@ -110,22 +126,6 @@ async function doRequests () {
   }
   console.log(imgurArray)
   */
-
-  // self-hosted:
-  // need: filenames, image width, image height, url from filename
-  imageArray = []
-  console.log(IMAGEPATH);
-  console.log(HOSTPATH);
-
-  fs.readdirSync(IMAGEPATH).forEach(file => {
-    if (file != ".dropbox") {
-      var dimensions = sizeOf(`${IMAGEPATH}/${file}`);
-      //console.log(file);
-      //console.log(dimensions);
-      finalPath = HOSTPATH + file;
-      imageArray.push([finalPath, dimensions.width, dimensions.height]);
-      }
-  });
 /*
   fs.readdir(IMAGEPATH, (err, files) => {
     files.forEach(file => {
@@ -139,7 +139,7 @@ async function doRequests () {
 */
   console.log(imageArray)
 
-// disabling peach stuff for now
+  // disabling peach stuff for now
   // Peach login request
   let response
   response = await request(loginOptions)
