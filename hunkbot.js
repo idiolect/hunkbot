@@ -1,3 +1,6 @@
+// IMPORTANT: imgur stuff commented out
+// Using self-hosted images instead.
+
 const lodash = require('lodash')
 
 // hunkbot
@@ -5,11 +8,21 @@ var request = require('request-promise')
 const HUNKBOTEMAIL = process.env.HUNKBOTEMAIL
 const HUNKBOTPASSWORD = process.env.HUNKBOTPASSWORD
 const HUNKBOTUSERNAME = process.env.HUNKBOTUSERNAME
+const IMAGEPATH = process.env.IMAGEPATH
+//const IMAGEPATH ="./images/"
+const HOSTPATH = process.env.HOSTPATH
 
+// local images
+const fs = require('fs')
+var sizeOf = require('image-size');
+
+/*
 // imgur
 const IMGURCLIENTID = process.env.IMGURCLIENTID
 var imgurResponse
+*/
 
+// peach
 var loginResponse
 var authenticationToken
 var isUnreadResponse
@@ -60,9 +73,13 @@ var readOptions = {
   headers: { 'Authorization': `Bearer ${authenticationToken}` }
 }
 
+/*
 // imgur
 var imgurArray = []
+*/
 
+/*
+// imgur
 async function doRequests () {
   // imgur request and building a list of images with their associated widths and heights.
 
@@ -92,7 +109,36 @@ async function doRequests () {
     imgurArray.push([hunkURL, hunkWidth, hunkHeight])
   }
   console.log(imgurArray)
+  */
 
+  // self-hosted:
+  // need: filenames, image width, image height, url from filename
+  imageArray = []
+  console.log(IMAGEPATH);
+  console.log(HOSTPATH);
+
+  fs.readdirSync(IMAGEPATH).forEach(file => {
+    var dimensions = sizeOf(`${IMAGEPATH}/${file}`);
+    console.log(file);
+    console.log(dimensions);
+    finalPath = HOSTPATH + file;
+    imageArray.push([finalPath, dimensions.width, dimensions.height]);
+  });
+/*
+  fs.readdir(IMAGEPATH, (err, files) => {
+    files.forEach(file => {
+      var dimensions = sizeOf(`${IMAGEPATH}/${file}`);
+      console.log(file);
+      console.log(dimensions);
+      finalPath = HOSTPATH + file;
+      imageArray.push([finalPath, dimensions.width, dimensions.height]);
+    });
+  });
+*/
+  console.log(imageArray)
+
+// disabling peach stuff for now
+/*
   // Peach login request
   let response
   response = await request(loginOptions)
@@ -119,8 +165,6 @@ async function doRequests () {
       // do stuff
       if (myJSON.data.activityItems[x].isUnread === true) {
         try {
-          // Need to change the following to check for type 'tag' instead of a mention
-          // if (myJSON.data.activityItems[x].body.postMessage[0].text.includes(`@${HUNKBOTUSERNAME}`)) {
           if (myJSON.data.activityItems[x].type === 'tag' && myJSON.data.activityItems[x].type !== 'like' && myJSON.data.activityItems[x].body.authorStream.name !== `${HUNKBOTUSERNAME}` && myJSON.data.activityItems[x].body.postMessage[0].type === 'text' && myJSON.data.activityItems[x].body.postMessage[0].text.includes(`@${HUNKBOTUSERNAME}`)
           ) {
             replyOptions.headers.Authorization = `Bearer ${authenticationToken}`
@@ -129,13 +173,15 @@ async function doRequests () {
             // console.log(myJSON.data.activityItems[x].body.postMessage[0].text)
             replyOptions.json.message[1].text = `@${authorName}`
             // let randomImageIndex = lodash.random(0, imageURLArray.length)
-            let randomImageIndex = lodash.random(0, imgurArray.length)
+            // commenting out the next imgur-specific line
+            //let randomImageIndex = lodash.random(0, imgurArray.length)
+            let randomImageIndex = lodash.random(0, imageArray.length)
             // replyOptions.json.message[0].src = imageURLArray[randomImageIndex]
-            replyOptions.json.message[0].src = imgurArray[randomImageIndex][0]
+            replyOptions.json.message[0].src = imageArray[randomImageIndex][0]
             // imgur-specific
-            replyOptions.json.message[0].src = imgurArray[randomImageIndex][0]
-            replyOptions.json.message[0].width = imgurArray[randomImageIndex][1]
-            replyOptions.json.message[0].height = imgurArray[randomImageIndex][2]
+            replyOptions.json.message[0].src = imageArray[randomImageIndex][0]
+            replyOptions.json.message[0].width = imageArray[randomImageIndex][1]
+            replyOptions.json.message[0].height = imageArray[randomImageIndex][2]
             console.log(replyOptions)
             response = await request(replyOptions)
             console.log(response)
@@ -157,3 +203,4 @@ async function doRequests () {
 }
 
 doRequests().catch(err => console.log(err))
+*/
