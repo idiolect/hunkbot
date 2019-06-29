@@ -16,6 +16,7 @@ var isUnreadResponse
 var isUnreadFlag
 var activity
 
+// peach
 var loginOptions = {
   url: 'https://v1.peachapi.com/login',
   method: 'POST',
@@ -23,18 +24,21 @@ var loginOptions = {
   json: { 'email': HUNKBOTEMAIL, 'password': HUNKBOTPASSWORD }
 }
 
+// peach
 var isUnreadOptions = {
   url: 'https://v1.peachapi.com/activity/isUnread',
   method: 'GET',
   headers: { 'Authorization': `Bearer ${authenticationToken}` }
 }
 
+// peach
 var activityOptions = {
   url: 'https://v1.peachapi.com/activity',
   method: 'GET',
   headers: { 'Authorization': `Bearer ${authenticationToken}` }
 }
 
+// peach
 var replyOptions = {
   url: 'https://v1.peachapi.com/post',
   method: 'POST',
@@ -49,6 +53,7 @@ var replyOptions = {
   }] }
 }
 
+// peach
 var readOptions = {
   url: 'https://v1.peachapi.com/activity/read',
   method: 'PUT',
