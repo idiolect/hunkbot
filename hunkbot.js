@@ -120,8 +120,8 @@ async function doRequests () {
   fs.readdirSync(IMAGEPATH).forEach(file => {
     if (file != ".dropbox") {
       var dimensions = sizeOf(`${IMAGEPATH}/${file}`);
-      console.log(file);
-      console.log(dimensions);
+      //console.log(file);
+      //console.log(dimensions);
       finalPath = HOSTPATH + file;
       imageArray.push([finalPath, dimensions.width, dimensions.height]);
       }
@@ -140,7 +140,6 @@ async function doRequests () {
   console.log(imageArray)
 
 // disabling peach stuff for now
-/*
   // Peach login request
   let response
   response = await request(loginOptions)
@@ -205,4 +204,3 @@ async function doRequests () {
 }
 
 doRequests().catch(err => console.log(err))
-*/
