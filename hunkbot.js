@@ -118,11 +118,13 @@ async function doRequests () {
   console.log(HOSTPATH);
 
   fs.readdirSync(IMAGEPATH).forEach(file => {
-    var dimensions = sizeOf(`${IMAGEPATH}/${file}`);
-    console.log(file);
-    console.log(dimensions);
-    finalPath = HOSTPATH + file;
-    imageArray.push([finalPath, dimensions.width, dimensions.height]);
+    if (file != ".dropbox") {
+      var dimensions = sizeOf(`${IMAGEPATH}/${file}`);
+      console.log(file);
+      console.log(dimensions);
+      finalPath = HOSTPATH + file;
+      imageArray.push([finalPath, dimensions.width, dimensions.height]);
+      }
   });
 /*
   fs.readdir(IMAGEPATH, (err, files) => {
