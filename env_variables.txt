@@ -1,0 +1,13 @@
+# HUNKBOT!
+# Command to launch hunkbot shell script that controls timing
+alias hunkbot="nohup ~/hunkbot/hunkbot.sh >/dev/null 2>&1 &"
+# Email address associated with Peach account
+export HUNKBOTEMAIL="hunkbot@use.startmail.com"
+# Peach account password
+export HUNKBOTPASSWORD="vainglory2876"
+# Peach account username
+export HUNKBOTUSERNAME="hunkbot"
+# Currently, images must be locally stored so we can get their dimensions
+export IMAGEPATH="./images/"
+# Hosting location of images. Filenames are appended to this.
+export HOSTPATH="https://justincameron.org/hunkbot/"

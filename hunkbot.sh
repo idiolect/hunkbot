@@ -1,2 +1,2 @@
 #!/usr/bin/bash
-while true; do node hunkbot.js; sleep 120; done
+while true; cd /home/idiolect/hunkbot; do node hunkbot.js; sleep 60; done

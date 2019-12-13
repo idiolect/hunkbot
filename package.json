@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "author": "Justin Cameron <justin.b.cameron@gmail.com>",
   "email": "hunkbot@use.startmail.com",
   "dependencies": {
-    "aws-sdk": "^2.355.0",
     "fs": "^0.0.1-security",
     "image-size": "^0.7.4",
     "lodash": "^4.17.11",

@@ -1,0 +1,238 @@
+./images/
+https://justincameron.org/hunkbot/
+08lakeith1-facebookJumbo.jpg
+{ height: 550, width: 1050, type: 'jpg' }
+3000.jpg
+{ width: 680, height: 518, orientation: 1, type: 'jpg' }
+3db82c4a2942459cb8d47b207b9d9cd51561829703.jpg
+{ width: 750, height: 1000, orientation: 1, type: 'jpg' }
+5a435090ff9f474baaf0fb4843071f3f1561777610.jpg
+{ width: 881, height: 533, orientation: 1, type: 'jpg' }
+BCEad.jpg
+{ height: 327, width: 500, type: 'jpg' }
+Cropped-Phonto-Kate-McKinnon-1080x675.png
+{ width: 1080, height: 675, type: 'png' }
+DanielKaluuya_hb.jpg
+{ height: 421, width: 636, type: 'jpg' }
+DdbcH1oVAAAzDMP.jpg
+{ width: 668, height: 840, orientation: 1, type: 'jpg' }
+George-Clooney-ER-645x683.jpg
+{ height: 1059, width: 1000, type: 'jpg' }
+HenryCavill_hb.jpg
+{ height: 964, width: 640, type: 'jpg' }
+IMG-0357.jpg
+{ width: 640, height: 952, orientation: 1, type: 'jpg' }
+IMG-0358.JPG
+{ height: 1064, width: 750, type: 'jpg' }
+IMG-0360.JPG
+{ height: 810, width: 537, type: 'jpg' }
+IMG-0361.JPG
+{ height: 1280, width: 720, type: 'jpg' }
+IMG-0363.jpg
+{ width: 640, height: 667, orientation: 1, type: 'jpg' }
+IMG-0364.jpg
+{ width: 515, height: 680, orientation: 1, type: 'jpg' }
+IMG-0365.JPG
+{ width: 800, height: 1000, orientation: 1, type: 'jpg' }
+IMG-0366.JPG
+{ width: 762, height: 1000, orientation: 1, type: 'jpg' }
+IMG-0367.JPG
+{ width: 500, height: 750, orientation: 1, type: 'jpg' }
+IMG-0368.JPG
+{ width: 750, height: 1000, orientation: 1, type: 'jpg' }
+IMG-0369.JPG
+{ height: 1500, width: 1000, type: 'jpg' }
+IMG-0370.JPG
+{ width: 668, height: 1000, orientation: 1, type: 'jpg' }
+IMG-0371.jpg
+{ width: 640, height: 555, orientation: 1, type: 'jpg' }
+IMG-0372.JPG
+{ height: 1024, width: 806, type: 'jpg' }
+IMG_0015.JPG
+{ width: 522, height: 766, orientation: 1, type: 'jpg' }
+IMG_0022.JPG
+{ width: 400, height: 359, orientation: 1, type: 'jpg' }
+IMG_2510.JPG
+{ height: 760, width: 760, type: 'jpg' }
+IMG_2520.JPG
+{ height: 928, width: 740, type: 'jpg' }
+IMG_2521.JPG
+{ height: 750, width: 423, type: 'jpg' }
+IMG_9107.JPG
+{ width: 1000, height: 668, orientation: 1, type: 'jpg' }
+IdrisElba_hb.png
+{ width: 1200, height: 800, type: 'png' }
+Magic-Mike1.png
+{ width: 717, height: 439, type: 'png' }
+Mahershala-Ali-1317-GQ-FEYG12-01.jpg
+{ height: 939, width: 800, type: 'jpg' }
+Michael-B-Jordan.jpg
+{ height: 380, width: 675, type: 'jpg' }
+NIN-Cultice-011.jpg
+{ height: 980, width: 797, type: 'jpg' }
+Photo_Dec_01,_8_36_31_AM.jpg
+{ width: 603, height: 818, orientation: 1, type: 'jpg' }
+Photo_Nov_19,_9_05_27_AM.jpg
+{ width: 746, height: 666, orientation: 1, type: 'jpg' }
+Photo_Nov_21,_10_30_12_AM.jpg
+{ width: 750, height: 931, orientation: 1, type: 'jpg' }
+Photo_Nov_21,_10_46_54_AM.jpg
+{ height: 270, width: 220, type: 'jpg' }
+Photo_Nov_21,_10_47_31_AM.jpg
+{ height: 356, width: 491, type: 'jpg' }
+Photo_Nov_21,_10_47_49_AM.jpg
+{ height: 587, width: 491, type: 'jpg' }
+Photo_Nov_21,_10_49_52_AM.jpg
+{ height: 515, width: 418, type: 'jpg' }
+Photo_Nov_21,_10_50_20_AM.jpg
+{ height: 467, width: 403, type: 'jpg' }
+Photo_Nov_21,_10_52_10_AM.png
+{ width: 504, height: 600, type: 'png' }
+Photo_Nov_21,_10_52_17_AM.jpg
+{ height: 454, width: 600, type: 'jpg' }
+Photo_Nov_21,_10_52_23_AM.jpg
+{ height: 900, width: 900, type: 'jpg' }
+Photo_Nov_21,_10_53_19_AM.jpg
+{ height: 734, width: 768, type: 'jpg' }
+Photo_Nov_21,_10_53_23_AM.jpg
+{ height: 600, width: 401, type: 'jpg' }
+Photo_Nov_21,_10_53_30_AM.jpg
+{ height: 697, width: 555, type: 'jpg' }
+Photo_Nov_21,_10_53_33_AM.jpg
+{ height: 1050, width: 753, type: 'jpg' }
+Photo_Nov_21,_10_53_58_AM.png
+{ width: 374, height: 462, type: 'png' }
+Photo_Nov_21,_10_54_10_AM.jpg
+{ height: 791, width: 592, type: 'jpg' }
+Photo_Nov_21,_10_54_36_AM.jpg
+{ height: 860, width: 425, type: 'jpg' }
+Photo_Nov_21,_10_54_50_AM.jpg
+{ height: 366, width: 460, type: 'jpg' }
+Photo_Nov_21,_10_55_12_AM.jpg
+{ height: 549, width: 443, type: 'jpg' }
+Photo_Nov_21,_10_57_35_AM.jpg
+{ height: 844, width: 660, type: 'jpg' }
+Photo_Nov_21,_11_01_18_AM.jpg
+{ height: 380, width: 612, type: 'jpg' }
+Photo_Nov_21,_11_01_38_AM.jpg
+{ height: 400, width: 400, type: 'jpg' }
+Photo_Nov_21,_11_03_29_AM.jpg
+{ height: 799, width: 915, type: 'jpg' }
+Photo_Nov_21,_12_06_49_AM.jpg
+{ height: 1284, width: 980, type: 'jpg' }
+Photo_Nov_21,_12_10_17_AM.jpg
+{ height: 1600, width: 1174, type: 'jpg' }
+Photo_Nov_21,_12_29_34_AM.jpg
+{ height: 1024, width: 827, type: 'jpg' }
+Photo_Nov_21,_12_41_05_PM.jpg
+{ height: 625, width: 480, type: 'jpg' }
+Photo_Nov_21,_12_41_17_PM.jpg
+{ height: 534, width: 800, type: 'jpg' }
+Photo_Nov_21,_2_56_46_PM.jpg
+{ width: 960, height: 518, orientation: 1, type: 'jpg' }
+Photo_Nov_21,_2_57_34_PM.jpg
+{ height: 400, width: 600, type: 'jpg' }
+Photo_Nov_21,_2_58_17_PM.jpg
+{ height: 1478, width: 1444, type: 'jpg' }
+Photo_Nov_21,_2_59_30_PM.jpg
+{ height: 1080, width: 1438, type: 'jpg' }
+Photo_Nov_21,_3_00_03_PM.jpg
+{ height: 272, width: 185, type: 'jpg' }
+Photo_Nov_21,_3_01_33_PM.jpg
+{ height: 899, width: 1600, type: 'jpg' }
+Photo_Nov_21,_3_03_52_PM.jpg
+{ height: 236, width: 220, type: 'jpg' }
+Photo_Nov_21,_3_05_27_PM.jpg
+{ height: 295, width: 590, type: 'jpg' }
+Photo_Nov_21,_3_06_39_PM.jpg
+{ height: 352, width: 140, type: 'jpg' }
+Photo_Nov_21,_3_07_49_PM.jpg
+{ height: 450, width: 300, type: 'jpg' }
+Photo_Nov_21,_3_08_28_PM.jpg
+{ width: 1200, height: 800, orientation: 1, type: 'jpg' }
+Photo_Nov_21,_3_19_49_PM.jpg
+{ width: 803, height: 600, orientation: 1, type: 'jpg' }
+Photo_Nov_21,_3_34_28_PM.jpg
+{ width: 1400, height: 700, orientation: 1, type: 'jpg' }
+Photo_Nov_21,_5_21_56_PM.jpg
+{ height: 349, width: 700, type: 'jpg' }
+Photo_Nov_21,_5_25_18_PM.jpg
+{ height: 1072, width: 1608, type: 'jpg' }
+Photo_Nov_21,_5_26_52_PM.jpg
+{ height: 859, width: 552, type: 'jpg' }
+Photo_Nov_21,_5_27_01_PM.jpg
+{ height: 370, width: 236, type: 'jpg' }
+Photo_Nov_21,_5_27_22_PM.jpg
+{ height: 594, width: 395, type: 'jpg' }
+Photo_Nov_21,_5_27_32_PM.jpg
+{ height: 525, width: 525, type: 'jpg' }
+Photo_Nov_21,_5_29_09_PM.jpg
+{ height: 1800, width: 1800, type: 'jpg' }
+Photo_Nov_23,_8_21_19_AM.jpg
+{ height: 839, width: 640, type: 'jpg' }
+Photo_Nov_23,_8_21_23_AM.jpg
+{ height: 770, width: 607, type: 'jpg' }
+Photo_Nov_23,_8_25_14_AM.jpg
+{ height: 935, width: 640, type: 'jpg' }
+Photo_Nov_25,_6_51_22_PM.jpg
+{ width: 400, height: 504, orientation: 1, type: 'jpg' }
+Photo_Nov_27,_7_05_29_PM.jpg
+{ width: 500, height: 500, orientation: 1, type: 'jpg' }
+Photo_Nov_27,_7_05_34_PM.jpg
+{ width: 498, height: 772, orientation: 1, type: 'jpg' }
+Tahar_Rahim_Samba_avp_2014.jpg
+{ height: 566, width: 800, type: 'jpg' }
+a8277aa75077450c9f706cc7c5b8c8411561829703.jpg
+{ width: 620, height: 460, orientation: 1, type: 'jpg' }
+adamandpaul_hb.jpg
+{ height: 600, width: 500, type: 'jpg' }
+alanandemma_hb.jpg
+{ height: 425, width: 638, type: 'jpg' }
+aliliebertbombgirls.jpg
+{ height: 720, width: 960, type: 'jpg' }
+annaskellernlipservice.jpg
+{ height: 750, width: 499, type: 'jpg' }
+armiehammer_hb.jpg
+{ height: 1044, width: 768, type: 'jpg' }
+benedictcumberbatch_hb.png
+{ width: 500, height: 658, type: 'png' }
+boydandraylan_hb.jpg
+{ width: 650, height: 386, orientation: 1, type: 'jpg' }
+cateblanchett_hb.jpg
+{ height: 1107, width: 736, type: 'jpg' }
+channingtatum_hb.jpg
+{ height: 516, width: 409, type: 'jpg' }
+chiwetelejiofor_hb.jpg
+{ height: 642, width: 480, type: 'jpg' }
+chris-hemsworth-bruce-weber-january-2016-holiday-cover-vf-01.jpg
+{ height: 977, width: 1440, type: 'jpg' }
+chrisevans_hb.jpg
+{ width: 578, height: 438, orientation: 1, type: 'jpg' }
+chrishemsworth_hb.jpg
+{ height: 400, width: 600, type: 'jpg' }
+chrispine_hb.jpg
+{ height: 1015, width: 736, type: 'jpg' }
+cynthiaerivo_hb.jpg
+{ height: 1339, width: 2048, type: 'jpg' }
+ddk.jpg
+{ height: 759, width: 1024, type: 'jpg' }
+diegoluna_hb.jpg
+{ height: 400, width: 600, type: 'jpg' }
+donald-glover-Solo-A-Star-Wars-Story-red-carpet-may-2018-billboard-1548.jpg
+{ height: 421, width: 636, type: 'jpg' }
+e63a9d8b1fb448bd8a852904595232b31561829703.jpg
+{ width: 750, height: 1000, orientation: 1, type: 'jpg' }
+ewanmcgregor_hb.jpg
+{ height: 960, width: 640, type: 'jpg' }
+harrisonford_hb.jpg
+{ height: 832, width: 1480, type: 'jpg' }
+heather_peace.jpg
+{ width: 596, height: 721, orientation: 1, type: 'jpg' }
+henrycavillMI_hb.jpg
+{ height: 750, width: 1000, type: 'jpg' }
+hot_neville_1.jpg
+{ height: 600, width: 600, type: 'jpg' }
+hot_nevlle_2.jpg
+{ height: 580, width: 435, type: 'jpg' }
+img-chris-messina_11125816978.jpg
+{ width: 1280, height: 689, orientation: 1, type: 'jpg' }

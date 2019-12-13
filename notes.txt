@@ -1,0 +1,9 @@
+Right now, hunkbot has a dependency on:
+
+nginx
+an external script to loop it
+
+For purposes of easily dockerizing this, I might want to:
+
+Convert it to an express app, so it has its own web server
+Make it a loop, and expose the loop frequency as an environment variable
