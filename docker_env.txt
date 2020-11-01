@@ -1,5 +1,0 @@
-HUNKBOTEMAIL=hunkbot@use.startmail.com
-HUNKBOTPASSWORD=vainglory2876
-HUNKBOTUSERNAME=hunkbot
-IMAGEPATH=./images/
-HOSTPATH=https://justincameron.org/hunkbot/

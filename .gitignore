@@ -77,3 +77,11 @@ typings/
 
 # Images
 images
+
+# VSCode
+.vscode
+
+# Misc
+misc
+yarn.lock
+Dockerfile
