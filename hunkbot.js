@@ -1,26 +1,40 @@
-// IMPORTANT: imgur stuff commented out
-// Using self-hosted images instead.
+// https://github.com/idiolect/hunkbot
+/*
+MIT License
+
+Copyright (c) 2020 Justin Cameron
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
 
 const lodash = require('lodash')
-
-// hunkbot
 var request = require('request-promise')
+
 const HUNKBOTEMAIL = process.env.HUNKBOTEMAIL
 const HUNKBOTPASSWORD = process.env.HUNKBOTPASSWORD
 const HUNKBOTUSERNAME = process.env.HUNKBOTUSERNAME
 const IMAGEPATH = process.env.IMAGEPATH
-//const IMAGEPATH ="./images/"
 const HOSTPATH = process.env.HOSTPATH
 
 // local images
 const fs = require('fs')
 var sizeOf = require('image-size');
-
-/*
-// imgur
-const IMGURCLIENTID = process.env.IMGURCLIENTID
-var imgurResponse
-*/
 
   // self-hosted:
   // need: filenames, image width, image height, url from filename
@@ -89,57 +103,9 @@ var readOptions = {
   headers: { 'Authorization': `Bearer ${authenticationToken}` }
 }
 
-/*
-// imgur
-var imgurArray = []
-*/
-
 async function doRequests () {
-/*
-// imgur
-  // imgur request and building a list of images with their associated widths and heights.
+  //console.log(imageArray)
 
-  var headers = {
-    'Authorization': 'Client-ID 7564b7a4844b5c8'
-  }
-
-  var options = {
-    url: 'https://api.imgur.com/3/album/4eArsFU',
-    headers: headers
-  }
-
-  function callback (error, response, body) {
-    if (!error && response.statusCode === 200) {
-      imgurResponse = JSON.parse(body)
-    }
-  }
-
-  await request(options, callback)
-
-  let countOfImages = imgurResponse.data.images.length
-  console.log(countOfImages)
-  for (let x = 0; x < countOfImages; x++) {
-    let hunkURL = imgurResponse.data.images[x].link
-    let hunkWidth = imgurResponse.data.images[x].width
-    let hunkHeight = imgurResponse.data.images[x].height
-    imgurArray.push([hunkURL, hunkWidth, hunkHeight])
-  }
-  console.log(imgurArray)
-  */
-/*
-  fs.readdir(IMAGEPATH, (err, files) => {
-    files.forEach(file => {
-      var dimensions = sizeOf(`${IMAGEPATH}/${file}`);
-      console.log(file);
-      console.log(dimensions);
-      finalPath = HOSTPATH + file;
-      imageArray.push([finalPath, dimensions.width, dimensions.height]);
-    });
-  });
-*/
-  console.log(imageArray)
-
-  // disabling peach stuff for now
   // Peach login request
   let response
   response = await request(loginOptions)
@@ -170,16 +136,9 @@ async function doRequests () {
           ) {
             replyOptions.headers.Authorization = `Bearer ${authenticationToken}`
             var authorName = myJSON.data.activityItems[x].body.authorStream.name
-            // console.log(myJSON.data.activityItems[0].body.authorStream.name)
-            // console.log(myJSON.data.activityItems[x].body.postMessage[0].text)
             replyOptions.json.message[1].text = `@${authorName}`
-            // let randomImageIndex = lodash.random(0, imageURLArray.length)
-            // commenting out the next imgur-specific line
-            //let randomImageIndex = lodash.random(0, imgurArray.length)
             let randomImageIndex = lodash.random(0, imageArray.length)
-            // replyOptions.json.message[0].src = imageURLArray[randomImageIndex]
             replyOptions.json.message[0].src = imageArray[randomImageIndex][0]
-            // imgur-specific
             replyOptions.json.message[0].src = imageArray[randomImageIndex][0]
             replyOptions.json.message[0].width = imageArray[randomImageIndex][1]
             replyOptions.json.message[0].height = imageArray[randomImageIndex][2]

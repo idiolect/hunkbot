@@ -1,0 +1,14 @@
+# HUNKBOT!
+# I add these to the bash (or zsh, etc.) profile for the hunkbot account
+# Command to launch hunkbot shell script that controls timing
+alias hunkbot="nohup ~/hunkbot/hunkbot.sh >/dev/null 2>&1 &"
+# Email address associated with Peach account
+export HUNKBOTEMAIL="bot@example.com"
+# Peach account password
+export HUNKBOTPASSWORD="peachpassword"
+# Peach account username
+export HUNKBOTUSERNAME="username"
+# Currently, images must be locally stored so we can get their dimensions
+export IMAGEPATH="./images/"
+# Hosting location of images. Filenames are appended to this.
+export HOSTPATH="https://example.org/hunkbot/"
