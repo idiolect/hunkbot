@@ -7,10 +7,10 @@
   "email": "hunkbot@use.startmail.com",
   "dependencies": {
     "fs": "^0.0.1-security",
-    "image-size": "^0.7.4",
-    "lodash": "^4.17.11",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.2",
-    "standard": "^12.0.1"
+    "image-size": "^0.9.3",
+    "lodash": "^4.17.20",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "standard": "^16.0.1"
   }
 }
